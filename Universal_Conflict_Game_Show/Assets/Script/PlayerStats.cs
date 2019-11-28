@@ -9,7 +9,6 @@ public class PlayerStats : Stats
     public GameObject bullet;
     public float bulletSpeed;
     GameObject TempBullHandle;
-    bool isBulletHere = false;
 
     public override void Awake()
     {
@@ -38,6 +37,16 @@ public class PlayerStats : Stats
 
             //Clean Up, Bullet Destroy 
             Destroy(TempBullHandle, 3f);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<BulletReference>())
+        {
+            Debug.Log("it hit!!!");
+
+            ChangeHealth(-2);
         }
     }
 }

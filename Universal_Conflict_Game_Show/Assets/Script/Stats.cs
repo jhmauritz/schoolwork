@@ -35,6 +35,6 @@ public class Stats : MonoBehaviour
         currHealth += amount;
         currHealth = Mathf.Clamp(currHealth, 0, maxHealth);
 
-        healthFill.value = currHealth / maxHealth;
+        healthFill.value = currHealth;
     }
 }
