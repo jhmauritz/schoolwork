@@ -22,4 +22,14 @@ public class EnemyStats : Stats
 
         healthBar.LookAt(player.transform);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<BulletReference>())
+        {
+            Debug.Log("it hit!!!");
+
+            ChangeHealth(-2);
+        }
+    }
 }

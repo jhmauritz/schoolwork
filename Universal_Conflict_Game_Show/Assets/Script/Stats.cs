@@ -30,7 +30,7 @@ public class Stats : MonoBehaviour
         }
     }
 
-    public void ChangeHealth(float amount)
+    public void ChangeHealth(int amount)
     {
         currHealth += amount;
         currHealth = Mathf.Clamp(currHealth, 0, maxHealth);
