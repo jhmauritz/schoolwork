@@ -17,7 +17,12 @@ public class EnemyMovement : MonoBehaviour
     public NavMeshAgent agent;
 
     //Moving the enemy towards the player
-    public bool isPlayerHere = false; 
+    public bool isPlayerHere = false;
+
+    //Bullet Activation
+    public GameObject bulletEmitter;
+    public GameObject bullet;
+    public float bulletSpeed;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,6 +43,11 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         PlayerHere();
+
+        if(isPlayerHere == true)
+        {
+            BulletSpawm();
+        }
     }
 
     private void PlayerHere()
@@ -73,5 +83,26 @@ public class EnemyMovement : MonoBehaviour
         }
 
         agent.SetDestination(myPlayerNavPoints[playerIndex].transform.position);
+    }
+
+    public void BulletSpawm()
+    {
+        //Bullet Initiation
+        GameObject TempBullHandle;
+        TempBullHandle = Instantiate(bullet, bulletEmitter.transform.position, bulletEmitter.transform.rotation) as GameObject;
+        TempBullHandle.SetActive(true);
+
+        //Correct Bullet Rotation
+        TempBullHandle.transform.Rotate(Vector3.left * 90);
+
+        //Retrieve and Control Bullet RigidBody
+        Rigidbody TempRigBod;
+        TempRigBod = TempBullHandle.GetComponent<Rigidbody>();
+
+        //Move Bullet Forward
+        TempRigBod.AddForce(transform.forward * bulletSpeed);
+
+        //Clean Up, Bullet Destroy 
+        Destroy(TempBullHandle, 3f);
     }
 }

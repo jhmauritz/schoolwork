@@ -5,24 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerStats : Stats
 {
-    public override void Awake()
-    {
-        base.Awake();
-    }
-    
-    public override void Update()
-    {
-        base.Update();
-
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            BulletSpawm();
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<BulletReference>())
+        if (other.gameObject.GetComponent<BullRefEnemy>())
         {
             Debug.Log("it hit!!!");
 

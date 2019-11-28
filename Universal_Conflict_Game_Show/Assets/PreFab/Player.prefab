@@ -218,9 +218,6 @@ MonoBehaviour:
   healthFill: {fileID: 5472185640605940514}
   currHealth: 20
   maxHealth: 20
-  bulletEmitter: {fileID: 20859062524262008}
-  bullet: {fileID: 7742037207041894682, guid: 7aeb266323f68e84fb576414ea8a3ed5, type: 3}
-  bulletSpeed: 1000
 --- !u!1 &764801265959975067
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +726,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotSpeed: 200
   moveSpeed: 10
+  bulletEmitter: {fileID: 0}
+  bullet: {fileID: 0}
+  bulletSpeed: 0
 --- !u!114 &2231340432407274629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1665,7 +1665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -548, y: -468}
+  m_AnchoredPosition: {x: -526, y: -352}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8030763600247664733
@@ -2277,12 +2277,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e12e0ea51be624a5485aceb64bca7605, type: 3}
---- !u!1 &20859062524262008 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2586030614220371144, guid: e12e0ea51be624a5485aceb64bca7605,
-    type: 3}
-  m_PrefabInstance: {fileID: 2569714876150235824}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5488928331145236637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8036076692722520621, guid: e12e0ea51be624a5485aceb64bca7605,

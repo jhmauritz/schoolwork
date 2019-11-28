@@ -23,12 +23,11 @@ public class EnemyStats : Stats
         healthBar.LookAt(player.transform);
     }
 
+    //Make a new bullet script that sees the capsule collider and runs through it and does damage a different way
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<BulletReference>())
+        if (other.gameObject.GetComponent<BullRefPlayer>())
         {
-            Debug.Log("it hit!!!");
-
             ChangeHealth(-2);
         }
     }
