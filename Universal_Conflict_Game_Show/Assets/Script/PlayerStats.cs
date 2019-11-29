@@ -9,8 +9,11 @@ public class PlayerStats : Stats
     {
         if (other.gameObject.GetComponent<BullRefEnemy>())
         {
-            Debug.Log("it hit!!!");
+            ChangeHealth(-2);
+        }
 
+        if (other.gameObject.GetComponent<TrapRef>())
+        {
             ChangeHealth(-2);
         }
     }

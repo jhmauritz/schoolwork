@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.019957, y: -0.0026302}
-  m_SizeDelta: {x: 1920.1, y: 1079.9}
+  m_AnchoredPosition: {x: -0.016426, y: 5.2236}
+  m_SizeDelta: {x: 2052, y: 1021}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338746789
 MonoBehaviour:
@@ -866,7 +866,7 @@ Canvas:
   m_GameObject: {fileID: 1552872720}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1008,7 +1008,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Game Designer\n\nProgrammer\n\nArt \n\nAssets Creation\n\nBackground Images\n
-    \  Stars Image\n   Skull Image\n   Firework Image"
+    \  Stars Image\n   Skull Image\n   Firework Image\n\nAsset Packages\nUnity Technologies\nERBGameArt"
 --- !u!222 &2048000347
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1103,7 +1103,13 @@ MonoBehaviour:
 
     Ahmed Adly
 
-    Pixaby'
+    Pixaby
+
+
+
+    TextMeshPro
+
+    Procedural Fire'
 --- !u!222 &2105698845
 CanvasRenderer:
   m_ObjectHideFlags: 0

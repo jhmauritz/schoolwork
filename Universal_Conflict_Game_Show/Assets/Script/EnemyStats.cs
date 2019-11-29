@@ -12,6 +12,11 @@ public class EnemyStats : Stats
     {
         base.Update();
         PositionHealthBar();
+
+        if(player == null)
+        {
+            Debug.Log("They just vanished!");
+        }
     }
 
     private void PositionHealthBar()
@@ -21,6 +26,11 @@ public class EnemyStats : Stats
         healthBar.position = new Vector3(currPos.x, currPos.y + healthBarYOffset, currPos.z);
 
         healthBar.LookAt(player.transform);
+
+        if (player == null)
+        {
+            Debug.Log("They just vanished!");
+        }
     }
 
     //Make a new bullet script that sees the capsule collider and runs through it and does damage a different way

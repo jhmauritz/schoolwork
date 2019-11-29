@@ -24,6 +24,10 @@ public class EnemyMovement : MonoBehaviour
     public GameObject bullet;
     public float bulletSpeed;
 
+    //Bullet firerate variable
+    public float FireRate = 1f;
+    private float NextTimeToFire;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<PlayerNavPoint>())
@@ -44,12 +48,18 @@ public class EnemyMovement : MonoBehaviour
     {
         PlayerHere();
 
-        if(isPlayerHere == true)
+        if (Time.time > NextTimeToFire && isPlayerHere == true)
+        {   
+            Shoot();
+        }
+
+        if(agent == null)
         {
-            BulletSpawm();
+            Debug.Log("He be gone!");
         }
     }
 
+    //Make Enemy forllow or patrol
     private void PlayerHere()
     {
         if (isPlayerHere)
@@ -82,10 +92,15 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("Nothing in here!");
         }
 
+        if(myPlayerNavPoints == null)
+        {
+            Debug.Log("This Boi be Gone!");
+        }
+
         agent.SetDestination(myPlayerNavPoints[playerIndex].transform.position);
     }
 
-    public void BulletSpawm()
+    public void Shoot()
     {
         //Bullet Initiation
         GameObject TempBullHandle;
@@ -101,6 +116,9 @@ public class EnemyMovement : MonoBehaviour
 
         //Move Bullet Forward
         TempRigBod.AddForce(transform.forward * bulletSpeed);
+
+        //Bullet FireRate
+        NextTimeToFire = Time.time + FireRate;
 
         //Clean Up, Bullet Destroy 
         Destroy(TempBullHandle, 3f);
