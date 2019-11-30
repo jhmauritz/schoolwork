@@ -40,5 +40,10 @@ public class EnemyStats : Stats
         {
             ChangeHealth(-2);
         }
+
+        if (other.gameObject.GetComponent<TrapRef>())
+        {
+            ChangeHealth(-1);
+        }
     }
 }

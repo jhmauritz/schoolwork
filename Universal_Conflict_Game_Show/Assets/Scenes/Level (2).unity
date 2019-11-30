@@ -5255,6 +5255,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4679264003795296982, guid: 476e81d02ca2b194f95c73684786c582,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2343444429127155284, guid: 476e81d02ca2b194f95c73684786c582,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5308,6 +5313,11 @@ PrefabInstance:
     - target: {fileID: 2343444429127155284, guid: 476e81d02ca2b194f95c73684786c582,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775620254081815059, guid: 476e81d02ca2b194f95c73684786c582,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2343444429843114358, guid: 476e81d02ca2b194f95c73684786c582,
@@ -5431,11 +5441,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5775620254081815059, guid: 476e81d02ca2b194f95c73684786c582,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1360923769798277135, guid: 476e81d02ca2b194f95c73684786c582,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5450,28 +5455,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679264003795296982, guid: 476e81d02ca2b194f95c73684786c582,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6874820316976396509, guid: 476e81d02ca2b194f95c73684786c582,
-        type: 3}
-      propertyPath: m_text
-      value: Time to fight....AGAIN!!!
-      objectReference: {fileID: 0}
-    - target: {fileID: 316506468902900548, guid: 476e81d02ca2b194f95c73684786c582,
-        type: 3}
-      propertyPath: m_text
-      value: "Why put all this fire here on my side of the arena??? \nDoes the other
-        guy get any?!?!"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6835563715282369783, guid: 476e81d02ca2b194f95c73684786c582,
-        type: 3}
-      propertyPath: m_text
-      value: "Well, that sucked! \nThat thing shot faster than a smuggler running
-        from the galactic patrol!"
       objectReference: {fileID: 0}
     - target: {fileID: 6385907114582264293, guid: 476e81d02ca2b194f95c73684786c582,
         type: 3}
@@ -5523,12 +5506,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 5.1299973
       objectReference: {fileID: 0}
-    - target: {fileID: 6850270339833643624, guid: 476e81d02ca2b194f95c73684786c582,
-        type: 3}
-      propertyPath: m_text
-      value: So I guess that button brought me to a new fight, my leg is still broken
-        though....
-      objectReference: {fileID: 0}
     - target: {fileID: 4151004273328080063, guid: 476e81d02ca2b194f95c73684786c582,
         type: 3}
       propertyPath: m_Colors.m_HighlightedColor.a
@@ -5578,11 +5555,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Atleast I can dodge most of the fire, it didn't hurt to bad this time.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7711510131500678650, guid: 476e81d02ca2b194f95c73684786c582,
-        type: 3}
-      propertyPath: m_text
-      value: Welp, guess Ill just press the button again?
       objectReference: {fileID: 0}
     - target: {fileID: 3220394587214111716, guid: 476e81d02ca2b194f95c73684786c582,
         type: 3}
@@ -5853,6 +5825,42 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -1.074997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874820316976396509, guid: 476e81d02ca2b194f95c73684786c582,
+        type: 3}
+      propertyPath: m_text
+      value: Time to fight....AGAIN!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 316506468902900548, guid: 476e81d02ca2b194f95c73684786c582,
+        type: 3}
+      propertyPath: m_text
+      value: "Why put all this fire here on my side of the arena??? \nDoes the other
+        guy get any?!?!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835563715282369783, guid: 476e81d02ca2b194f95c73684786c582,
+        type: 3}
+      propertyPath: m_text
+      value: "Well, that sucked! \nThat thing shot faster than a smuggler running
+        from the galactic patrol!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833669056173279977, guid: 476e81d02ca2b194f95c73684786c582,
+        type: 3}
+      propertyPath: m_text
+      value: 'This best be the last button I see....
+
+
+        Press X to interact.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850270339833643624, guid: 476e81d02ca2b194f95c73684786c582,
+        type: 3}
+      propertyPath: m_text
+      value: So I guess that button brought me to a new fight, my leg is still broken
+        though....
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711510131500678650, guid: 476e81d02ca2b194f95c73684786c582,
+        type: 3}
+      propertyPath: m_text
+      value: Welp, guess Ill just press the button again?
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 476e81d02ca2b194f95c73684786c582, type: 3}
