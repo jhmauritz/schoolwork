@@ -5,6 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    //Audio Parts
+    public GameObject weapon;
+    public AudioClip footsteps;
+    AudioSource audioSource;
+    float timer = 0f;
+    float repeatTime = 0.25f;
+
     //NavPoints for the enemy to Patrol
     public NavPoint[] myNavPoints;
     private int navIndex = 0;
@@ -27,6 +34,11 @@ public class EnemyMovement : MonoBehaviour
     //Bullet firerate variable
     public float FireRate = 1f;
     private float NextTimeToFire;
+
+    private void Start()
+    {
+        audioSource = gameObject.GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -80,6 +92,13 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("No Places to go!");
         }
+        
+        timer += Time.deltaTime;
+        if (timer >= repeatTime)
+        {
+            audioSource.PlayOneShot(footsteps);
+            timer = 0;
+        }
 
         agent.SetDestination(myNavPoints[navIndex].transform.position); 
     }
@@ -95,6 +114,13 @@ public class EnemyMovement : MonoBehaviour
         if(myPlayerNavPoints == null)
         {
             Debug.Log("This Boi be Gone!");
+        }
+
+        timer += Time.deltaTime;
+        if (timer >= repeatTime)
+        {
+            audioSource.PlayOneShot(footsteps);
+            timer = 0;
         }
 
         agent.SetDestination(myPlayerNavPoints[playerIndex].transform.position);
@@ -119,8 +145,5 @@ public class EnemyMovement : MonoBehaviour
 
         //Bullet FireRate
         NextTimeToFire = Time.time + FireRate;
-
-        //Clean Up, Bullet Destroy 
-        Destroy(TempBullHandle, 3f);
     }
 }

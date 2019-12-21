@@ -7,7 +7,15 @@ public class EnemyStats : Stats
 {
     public float healthBarYOffset = 2;
     public GameObject player;
-    
+    public float rotationSpeed = 2;
+    public GameObject hitmarker;
+
+    public override void Awake()
+    {
+        base.Awake();
+        hitmarker.SetActive(false);
+    }
+
     public override void Update()
     {
         base.Update();
@@ -39,11 +47,28 @@ public class EnemyStats : Stats
         if (other.gameObject.GetComponent<BullRefPlayer>())
         {
             ChangeHealth(-2);
+            damageAudioHolder.GetComponent<AudioSource>().Play();
+            HitMakrker(0.05f);
         }
 
         if (other.gameObject.GetComponent<TrapRef>())
         {
             ChangeHealth(-1);
+            damageAudioHolder.GetComponent<AudioSource>().Play();
         }
+    }
+
+    private void HitMakrker(float showTime)
+    {
+        StartCoroutine(ShowHitTime(showTime));
+
+    }
+
+    IEnumerator ShowHitTime(float hitTime)
+    {
+        hitmarker.SetActive(true);
+        yield return new WaitForSeconds(hitTime);
+        hitmarker.SetActive(false);
+
     }
 }

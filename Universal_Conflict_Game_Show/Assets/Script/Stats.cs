@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Stats : MonoBehaviour
 {
     public GameObject controller;
+    public GameObject damageAudioHolder;
 
     public Transform healthBar;
     public Slider healthFill;

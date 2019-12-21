@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class BullRefPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public bool isHit = false;
+    
     void Update()
     {
-        
+        if(isHit == true)
+        {
+            Destroy(gameObject);
+        }
+
+        else if(isHit == false)
+        {
+            Destroy(gameObject, 3f);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.GetComponent<WallRef>())
+        {
+             isHit = true;
+        }
+
+        if (other.gameObject.GetComponent<EnemyStats>())
+        {
+            isHit = true;
+        }
     }
 }

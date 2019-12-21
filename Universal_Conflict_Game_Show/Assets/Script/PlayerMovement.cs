@@ -1,27 +1,82 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float rotSpeed = 200.0f;
-    public float moveSpeed = 5.0f;
+    public float speed = 10.0f;
+    private float translation;
+    private float straffe;
+    Rigidbody rb;
+
+    //UI elements
+    public GameObject enemy;
+    public GameObject uiText;
 
     //Bullet Activation
     public GameObject bulletEmitter;
     public GameObject bullet;
     public float bulletSpeed;
 
+    //Sound Effects
+    public GameObject weapon;
+    public float stepRate = 0.5f;
+    public float stepCoolDown;
+    AudioSource audioSource;
+    public bool isSoundPlaying = false;
+
+    //Bullet firerate variable
+    public float FireRate = 0.75f;
+    private float NextTimeToFire;
+
+    //Lock cursor
+    bool cursorLocked;
+
+    private void Start()
+    {
+        rb = gameObject.GetComponent<Rigidbody>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        cursorLocked = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, Input.GetAxisRaw("Horizontal") * Time.deltaTime * rotSpeed, 0);
+        translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        transform.Translate(straffe, 0, translation); 
 
-        transform.Translate(0, 0, Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed);
-
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("Fire1") && Time.time > NextTimeToFire)
         {
             BulletSpawm();
+            weapon.GetComponent<AudioSource>().Play();
+        }
+
+        if ((Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f) && stepCoolDown < 0f)
+        {
+            audioSource.Play();
+        }
+
+        else if (!Input.GetButtonDown("Horizontal") || !Input.GetButtonDown("Vertical"))
+        {
+            audioSource.Stop();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape) && cursorLocked == false)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            cursorLocked = true;
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && cursorLocked == true)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            cursorLocked = false;
         }
     }
 
@@ -42,7 +97,10 @@ public class PlayerMovement : MonoBehaviour
         //Move Bullet Forward
         TempRigBod.AddForce(transform.forward * bulletSpeed);
 
-        //Clean Up, Bullet Destroy 
-        Destroy(TempBullHandle, 3f);
-    }
+        //Bullet FireRate
+        NextTimeToFire = Time.time + FireRate;
+    } 
 }
+
+
+

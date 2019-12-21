@@ -12,7 +12,7 @@ public class UIMessageTriggers : MonoBehaviour
 
     //triggers to be activate texts
     public GameObject triggerUI;
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject == player)
